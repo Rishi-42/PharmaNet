@@ -8,7 +8,7 @@ class ModelTests(TestCase):
         email = 'test@example.com'
         password = 'testpassword1'
         user = get_user_model().objects.create_user(
-            email=email, 
+            email=email,
             password=password,
         )
 
@@ -25,7 +25,7 @@ class ModelTests(TestCase):
         for email, expected in test_emails:
             user = get_user_model().objects.create_user(email, 'Password1')
             self.assertEqual(user.email, expected)
-    
+
     def test_email_requirement(self):
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user('', 'Password1')
